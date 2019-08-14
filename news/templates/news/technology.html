@@ -1,0 +1,28 @@
+{% extends "news/home.html" %}
+
+{% block content %}
+{% for new, des, i,url, date in mylist %}
+										<div class="col-md-3 col-sm-6">
+											<!-- ARTICLE -->
+											<article class="article">
+												<div class="article-img" style="height:200px;width:270px">
+													<a href="#">
+														<img src={{i}} alt="" style="height:200px;width:300px">
+													</a>
+													<ul class="article-info">
+														<li class="article-type"><i class="fa fa-camera"></i></li>
+													</ul>
+												</div>
+												<div class="article-body" style="height:150px;width:260px">
+													<h5 class="article-title"><a href="{{url}}">{{new}}</a></h5>
+													<ul class="article-meta">
+														<li><i class="fa fa-clock-o"></i>{{date}}</li>
+														<li><i class="fa fa-comments"></i> 33</li>
+													</ul>
+												</div>
+											</article>
+											<!-- /ARTICLE -->
+										</div>
+										<!-- /Column 1 -->
+{% endfor %}
+{% endblock content %}

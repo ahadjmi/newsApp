@@ -2,24 +2,17 @@ from django.shortcuts import render
 from newsapi import NewsApiClient 
   
 # Create your views here.  
-def index(request): 
+def newz(request): 
       
     newsapi = NewsApiClient(api_key ='d9bef8b4a9b44743ac8a4e13a613e7e1') 
     top = newsapi.get_top_headlines(country ='in')
-    crick = newsapi.get_top_headlines(sources ='espn-cric-info') 
-    entertain = newsapi.get_top_headlines(category='entertainment',language='en') 
   
     l = top['articles'] 
     desc =[] 
     news =[] 
     img =[] 
     urls =[]
-
-    m = crick['articles']
-    d =[] 
-    n =[] 
-    j =[] 
-    u =[]
+    date =[]
   
     for i in range(len(l)): 
         f = l[i] 
@@ -27,28 +20,136 @@ def index(request):
         desc.append(f['description']) 
         img.append(f['urlToImage']) 
         urls.append(f['url'])
-    mylist = zip(news, desc, img, urls) 
+        date.append(f['publishedAt'])
 
-    for k in range(len(m)): 
-        h = m[k] 
-        n.append(h['title']) 
-        d.append(h['description']) 
-        j.append(h['urlToImage']) 
-        u.append(h['url'])
-    cricket = zip(n, d, j, u)
+    mylist = zip(news, desc, img, urls, date) 
 
-    en =entertain['articles']
-    des =[] 
-    new =[] 
-    im =[] 
-    ur =[]
-
-    for k in range(len(en)): 
-        g = en[k] 
-        new.append(g['title']) 
-        des.append(g['description']) 
-        im.append(g['urlToImage']) 
-        ur.append(g['url'])
-    enter = zip(new, des, im, ur)
   
-    return render(request, 'news/home.html', context ={"mylist":mylist,"cricket":cricket,"enter":enter}) 
+    return render(request, 'news/newz.html', context ={"mylist":mylist}) 
+
+def cricket(request):
+
+    newsapi = NewsApiClient(api_key ='d9bef8b4a9b44743ac8a4e13a613e7e1') 
+    top = newsapi.get_top_headlines(sources ='espn-cric-info') 
+
+    l = top['articles'] 
+
+    desc =[] 
+    news =[] 
+    img =[] 
+    urls =[]
+    date =[]
+
+    for i in range(len(l)): 
+        f = l[i] 
+        news.append(f['title']) 
+        desc.append(f['description']) 
+        img.append(f['urlToImage']) 
+        urls.append(f['url'])
+        date.append(f['publishedAt'])
+
+    mylist = zip(news, desc, img, urls, date)
+
+    return render(request, 'news/cricket.html', context ={"mylist":mylist}) 
+    
+def entertainment(request):
+    newsapi = NewsApiClient(api_key ='d9bef8b4a9b44743ac8a4e13a613e7e1') 
+    top = newsapi.get_top_headlines(sources ='entertainment-weekly') 
+
+    l = top['articles'] 
+
+    desc =[] 
+    news =[] 
+    img =[] 
+    urls =[]
+    date =[]
+
+    for i in range(len(l)): 
+        f = l[i] 
+        news.append(f['title']) 
+        desc.append(f['description']) 
+        img.append(f['urlToImage']) 
+        urls.append(f['url'])
+        date.append(f['publishedAt'])
+
+    mylist = zip(news, desc, img, urls, date)
+
+    return render(request, 'news/entertainment.html', context ={"mylist":mylist}) 
+     
+
+def technology(request):
+    newsapi = NewsApiClient(api_key ='d9bef8b4a9b44743ac8a4e13a613e7e1')
+    top = newsapi.get_top_headlines(sources ='techcrunch') 
+
+    l = top['articles'] 
+
+    desc =[] 
+    news =[] 
+    img =[] 
+    urls =[]
+    date =[]
+
+    for i in range(len(l)): 
+        f = l[i] 
+        news.append(f['title']) 
+        desc.append(f['description']) 
+        img.append(f['urlToImage']) 
+        urls.append(f['url'])
+        date.append(f['publishedAt'])
+
+    mylist = zip(news, desc, img, urls, date)
+
+    return render(request, 'news/technology.html', context ={"mylist":mylist}) 
+     
+
+def science(request):
+    newsapi = NewsApiClient(api_key ='d9bef8b4a9b44743ac8a4e13a613e7e1')
+    top = newsapi.get_top_headlines(sources ='google-news-in, the-hindu, the-times-of-india') 
+
+    l = top['articles'] 
+
+    desc =[] 
+    news =[] 
+    img =[] 
+    urls =[]
+    date =[]
+
+    for i in range(len(l)): 
+        f = l[i] 
+        news.append(f['title']) 
+        desc.append(f['description']) 
+        img.append(f['urlToImage']) 
+        urls.append(f['url'])
+        date.append(f['publishedAt'])
+
+    mylist = zip(news, desc, img, urls, date)
+
+    return render(request, 'news/science.html', context ={"mylist":mylist}) 
+     
+
+def business(request):
+    newsapi = NewsApiClient(api_key ='d9bef8b4a9b44743ac8a4e13a613e7e1')
+    top = newsapi.get_top_headlines(sources ='financial-post, daily-mail') 
+
+    l = top['articles'] 
+
+    desc =[] 
+    news =[] 
+    img =[] 
+    urls =[]
+    date =[]
+
+    for i in range(len(l)): 
+        f = l[i] 
+        news.append(f['title']) 
+        desc.append(f['description']) 
+        img.append(f['urlToImage']) 
+        urls.append(f['url'])
+        date.append(f['publishedAt'])
+
+    mylist = zip(news, desc, img, urls, date)
+
+    return render(request, 'news/business.html', context ={"mylist":mylist}) 
+     
+    
+

@@ -83,12 +83,12 @@
 						</div>
 						<ul class="main-nav nav navbar-nav">
 							<li class="active"><a href="#">Home</a></li>
-							<li><a href="#News">News</a></li>
-							<li><a href="#Cricket">Cricket</a></li>
-							<li><a href="#Technology">Technology</a></li>
-							<li><a href="#Entertainment">Entertainment</a></li>
-							<li><a href="#World">World</a></li>
-							<li><a href="#Science">Science</a></li>
+							<li><a href="{% url 'newz' %}">News</a></li>
+							<li><a href="{% url 'cricket' %}">Cricket</a></li>
+							<li><a href="{% url 'technology' %}">Technology</a></li>
+							<li><a href="{% url 'entertainment' %}">Entertainment</a></li>
+							<li><a href="{% url 'business' %}">Business</a></li>
+							<li><a href="{% url 'science' %}">Science</a></li>
 						</ul>
 					</nav>
 					<div class="button-nav">
@@ -120,12 +120,13 @@
 							<h2  id="News" class="title">News</h2>
 							<!-- tab nav -->
 							<ul class="tab-nav pull-right">
-								<li class="active"><a data-toggle="tab" href="#tab1">All</a></li>
-								<li><a data-toggle="tab" href="#tab1">News</a></li>
-								<li><a data-toggle="tab" href="#tab1">Sport</a></li>
-								<li><a data-toggle="tab" href="#tab1">Music</a></li>
-								<li><a data-toggle="tab" href="#tab1">Business</a></li>
-								<li><a data-toggle="tab" href="#tab1">Lifestyle</a></li>
+								<li class="active"><a href="#">Home</a></li>
+							    <li><a href="{% url 'newz' %}">News</a></li>
+							    <li><a href="{% url 'cricket' %}">Cricket</a></li>
+							    <li><a href="{% url 'technology' %}">Technology</a></li>
+							    <li><a href="{% url 'entertainment' %}">Entertainment</a></li>
+							    <li><a href="{% url 'business' %}">Business</a></li>
+							    <li><a href="{% url 'science' %}">Science</a></li>
 							</ul>
 							<!-- /tab nav -->
 						</div>
@@ -139,172 +140,20 @@
 								<!-- row -->
 								<div class="row">
 									<!-- Column 1 -->
-									{% for new, des, i,url in mylist %}
-									<div class="col-md-3 col-sm-6">
-										<!-- ARTICLE -->
-										<article class="article">
-											<div class="article-img" style="height:200px;width:270px">
-												<a href="#">
-													<img src={{i}} alt="" style="height:200px;width:300px">
-												</a>
-												<ul class="article-info">
-													<li class="article-type"><i class="fa fa-camera"></i></li>
-												</ul>
-											</div>
-											<div class="article-body" style="height:150px;width:260px">
-												<h5 class="article-title"><a href="{{url}}">{{new}}</a></h5>
-												<ul class="article-meta">
-													<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-													<li><i class="fa fa-comments"></i> 33</li>
-												</ul>
-											</div>
-										</article>
-										<!-- /ARTICLE -->
-									</div>
-									<!-- /Column 1 -->
-									{% endfor %}
+								{% block content %}
 
-									<!-- Column 2 -->
-									
-								
-									<!-- /Column 2 -->
-									
+                                  {% endblock %}
+	
 								</div>	
 								<!-- /row -->
-							</div>
-							<!-- Column 2 -->
+							</div>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-
-							<div class="container">
-								<!-- ROW -->
-								<div class="row">
-									<!-- Main Column -->
-									<div class="col-md-12">
-										<!-- section title -->
-										<div class="section-title">
-											<h2 class="title">Cricket</h2>
-											<!-- tab nav -->
-											<ul class="tab-nav pull-right">
-												<li class="active"><a data-toggle="tab" href="#tab1">All</a></li>
-												<li><a data-toggle="tab" href="#tab1">News</a></li>
-												<li><a data-toggle="tab" href="#tab1">Sport</a></li>
-												<li><a data-toggle="tab" href="#tab1">Music</a></li>
-												<li><a data-toggle="tab" href="#tab1">Business</a></li>
-												<li><a data-toggle="tab" href="#tab1">Lifestyle</a></li>
-											</ul>
-											<!-- /tab nav -->
-										</div>
-										<!-- /section title -->
-										
-										<!-- Tab content -->
-										
-										<div class="tab-content">
-											<!-- tab1 -->
-											<div id="tab1" class="tab-pane fade in active">
-												<!-- row -->
-												<div class="row">
-													<!-- Column 1 -->
-													{% for new, des, i,url in cricket %}
-													<div class="col-md-3 col-sm-6">
-														<!-- ARTICLE -->
-														<article class="article">
-															<div class="article-img" style="height:200px;width:270px">
-																<a href="#">
-																	<img src={{i}} alt="" style="height:200px;width:300px">
-																</a>
-																<ul class="article-info">
-																	<li class="article-type"><i class="fa fa-camera"></i></li>
-																</ul>
-															</div>
-															<div class="article-body" style="height:150px;width:260px">
-																<h5 class="article-title"><a href="{{url}}">{{new}}</a></h5>
-																<ul class="article-meta">
-																	<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-																	<li><i class="fa fa-comments"></i> 33</li>
-																</ul>
-															</div>
-														</article>
-														<!-- /ARTICLE -->
-													</div>
-													<!-- /Column 1 -->
-													{% endfor %}
-				
-													<!-- Column 2 -->
-													
-												
-													<!-- /Column 2 -->
-													
-												</div>	
-												<!-- /row -->
-											</div>
-							
-							
-											<div class="container">
-												<!-- ROW -->
-												<div class="row">
-													<!-- Main Column -->
-													<div class="col-md-12">
-														<!-- section title -->
-														<div class="section-title">
-															<h2 class="title">Entertainment</h2>
-															<!-- tab nav -->
-															<ul class="tab-nav pull-right">
-																<li class="active"><a data-toggle="tab" href="#tab1">All</a></li>
-																<li><a data-toggle="tab" href="#tab1">News</a></li>
-																<li><a data-toggle="tab" href="#tab1">Sport</a></li>
-																<li><a data-toggle="tab" href="#tab1">Music</a></li>
-																<li><a data-toggle="tab" href="#tab1">Business</a></li>
-																<li><a data-toggle="tab" href="#tab1">Lifestyle</a></li>
-															</ul>
-															<!-- /tab nav -->
-														</div>
-														<!-- /section title -->
-														
-														<!-- Tab content -->
-														
-														<div class="tab-content">
-															<!-- tab1 -->
-															<div id="tab1" class="tab-pane fade in active">
-																<!-- row -->
-																<div class="row">
-																	<!-- Column 1 -->
-																	{% for new, des, i,url in enter %}
-																	<div class="col-md-3 col-sm-6">
-																		<!-- ARTICLE -->
-																		<article class="article">
-																			<div class="article-img" style="height:200px;width:270px">
-																				<a href="#">
-																					<img src={{i}} alt="" style="height:200px;width:300px">
-																				</a>
-																				<ul class="article-info">
-																					<li class="article-type"><i class="fa fa-camera"></i></li>
-																				</ul>
-																			</div>
-																			<div class="article-body" style="height:150px;width:260px">
-																				<h5 class="article-title"><a href="{{url}}">{{new}}</a></h5>
-																				<ul class="article-meta">
-																					<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-																					<li><i class="fa fa-comments"></i> 33</li>
-																				</ul>
-																			</div>
-																		</article>
-																		<!-- /ARTICLE -->
-																	</div>
-																	<!-- /Column 1 -->
-																	{% endfor %}
-								
-																	<!-- Column 2 -->
-																	
-																
-																	<!-- /Column 2 -->
-																	
-																</div>	
-																<!-- /row -->
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
+						
 		
 		
 		<!-- FOOTER -->
@@ -318,12 +167,7 @@
 						<!-- Column 1 -->
 						<div class="col-md-4">
 							<!-- footer about -->
-							<div class="footer-widget about-widget">
-								<div class="footer-logo">
-									<a href="#" class="logo"><img src="./img/logo-alt.png" alt=""></a>
-									<p>Populo tritani laboramus ex mei, no eum iuvaret ceteros euripidis, ne alia sadipscing mei. Te inciderint cotidieque pro, ei iisque docendi qui.</p>
-								</div>
-							</div>
+							
 							<!-- /footer about -->
 							
 							<!-- footer social -->
@@ -357,106 +201,7 @@
 						<!-- /Column 1 -->
 						
 						<!-- Column 2 -->
-						<div class="col-md-4">
-							<!-- footer article -->
-							<div class="footer-widget">
-								<div class="widget-title">
-									<h2 class="title">Featured Posts</h2>
-								</div>
-
-								<!-- ARTICLE -->
-								<article class="article widget-article">
-									<div class="article-img">
-										<a href="#">
-											<img src="./img/img-widget-1.jpg" alt="">
-										</a>
-									</div>
-									<div class="article-body">
-										<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-										<ul class="article-meta">
-											<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-											<li><i class="fa fa-comments"></i> 33</li>
-										</ul>
-									</div>
-								</article>
-								<!-- /ARTICLE -->
-								
-								<!-- ARTICLE -->
-								<article class="article widget-article">
-									<div class="article-img">
-										<a href="#">
-											<img src="./img/img-widget-2.jpg" alt="">
-										</a>
-									</div>
-									<div class="article-body">
-										<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-										<ul class="article-meta">
-											<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-											<li><i class="fa fa-comments"></i> 33</li>
-										</ul>
-									</div>
-								</article>
-								<!-- /ARTICLE -->
-								
-								<!-- ARTICLE -->
-								<article class="article widget-article">
-									<div class="article-img">
-										<a href="#">
-											<img src="./img/img-widget-3.jpg" alt="">
-										</a>
-									</div>
-									<div class="article-body">
-										<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-										<ul class="article-meta">
-											<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-											<li><i class="fa fa-comments"></i> 33</li>
-										</ul>
-									</div>
-								</article>
-								<!-- /ARTICLE -->
-							</div>
-							<!-- /footer article -->
-						</div>
-						<!-- /Column 2 -->
 						
-						<!-- Column 3 -->
-						<div class="col-md-4">
-							<!-- footer galery -->
-							<div class="footer-widget galery-widget">
-								<div class="widget-title">
-									<h2 class="title">Flickr Photos</h2>
-								</div>
-								<ul>
-									<li><a href="#"><img src="./img/img-widget-3.jpg" alt=""></a></li>
-									<li><a href="#"><img src="./img/img-widget-4.jpg" alt=""></a></li>
-									<li><a href="#"><img src="./img/img-widget-5.jpg" alt=""></a></li>
-									<li><a href="#"><img src="./img/img-widget-6.jpg" alt=""></a></li>
-									<li><a href="#"><img src="./img/img-widget-7.jpg" alt=""></a></li>
-									<li><a href="#"><img src="./img/img-widget-8.jpg" alt=""></a></li>
-									<li><a href="#"><img src="./img/img-widget-9.jpg" alt=""></a></li>
-									<li><a href="#"><img src="./img/img-widget-10.jpg" alt=""></a></li>
-								</ul>
-							</div>
-							<!-- /footer galery -->
-							
-							<!-- footer tweets -->
-							<div class="footer-widget tweets-widget">
-								<div class="widget-title">
-									<h2 class="title">Recent Tweets</h2>
-								</div>
-								<ul>
-									<li class="tweet">
-										<i class="fa fa-twitter"></i>
-										<div class="tweet-body">
-											<p><a href="#">@magnews</a> Populo tritani laboramus ex mei, no eum iuvaret ceteros euripidis <a href="#">https://t.co/DwsTbsmxTP</a></p>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<!-- /footer tweets -->
-						</div>
-						<!-- /Column 3 -->
-					</div>
 					<!-- /ROW -->
 				</div>
 				<!-- /CONTAINER -->
@@ -484,7 +229,7 @@
 						<div class="col-md-6 col-md-pull-6">
 							<div class="footer-copyright">
 								<span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved<i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="{% url 'newz' %}" target="_blank">Ahad</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
 							</div>
 						</div>
